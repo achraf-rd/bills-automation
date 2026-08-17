@@ -2,6 +2,9 @@
   "name": "bills-automation",
   "version": "1.0.0",
   "description": "Moroccan utility bills automation - Lydec/SRM-CS (water + electricity) & Inwi (internet)",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
