@@ -7,7 +7,7 @@ let scheduledTask = null;
 let nextRun = null;
 
 const startScheduler = () => {
-    const schedule = process.env.CRON_SCHEDULE || '0 9 * * *'; // Default: every day at 9 AM
+    const schedule = process.env.CRON_SCHEDULE || db.getSetting('cronExpression') || '0 9 1,16 * *'; // Default: 9 AM on 1st and 16th
     
     if (scheduledTask) {
         scheduledTask.stop();
@@ -25,10 +25,10 @@ const startScheduler = () => {
             
             if (autoSend) {
                 const summary = await billService.getBillSummary();
-                if (summary.unpaid && summary.unpaid.length > 0) {
-                    const recipient = process.env.EMAIL_RECIPIENT;
+                if ((summary.unpaid && summary.unpaid.length > 0) || (summary.errors && summary.errors.length > 0)) {
+                    const recipient = process.env.EMAIL_RECIPIENT || db.getSetting('recipientEmail') || db.getSetting('senderEmail');
                     if (recipient) {
-                        await emailService.sendBillSummary(summary.unpaid, recipient);
+                        await emailService.sendBillSummary(summary.unpaid, summary.errors, recipient);
                     }
                 }
             }
@@ -53,7 +53,7 @@ const stopScheduler = () => {
 const getNextRun = () => {
     // node-cron doesn't easily expose the next run time natively without additional parsing.
     // Return a placeholder or implement cron-parser for accurate time.
-    return "Scheduled based on: " + (process.env.CRON_SCHEDULE || '0 9 * * *');
+    return "Scheduled based on: " + (process.env.CRON_SCHEDULE || db.getSetting('cronExpression') || '0 9 1,16 * *');
 };
 
 const isRunning = () => {

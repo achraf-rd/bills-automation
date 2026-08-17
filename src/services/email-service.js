@@ -38,10 +38,10 @@ const getProviderEmoji = (provider) => {
     return '📄';
 };
 
-const sendBillSummary = async (bills, recipientEmail) => {
-    if (!bills || bills.length === 0) {
-        console.log('No bills to send.');
-        return { success: true, message: 'No bills to send' };
+const sendBillSummary = async (bills, errors = [], recipientEmail) => {
+    if ((!bills || bills.length === 0) && (!errors || errors.length === 0)) {
+        console.log('No bills or errors to send.');
+        return { success: true, message: 'No bills or errors to send' };
     }
 
     const transporter = getTransporter();
@@ -75,7 +75,8 @@ const sendBillSummary = async (bills, recipientEmail) => {
     bills.forEach(bill => {
         const color = getProviderColor(bill.provider);
         const emoji = getProviderEmoji(bill.provider);
-        const payLink = `${appUrl}/pay/${encodeURIComponent(bill.provider)}/${bill.id}`;
+        // Use the pre-generated durable CMI link if it exists, otherwise fallback to the dynamic resolver
+        const payLink = bill.payment_url || `${appUrl}/pay/${encodeURIComponent(bill.provider)}/${bill.id}`;
 
         htmlBody += `
                 <!-- Bill Item -->
@@ -90,23 +91,45 @@ const sendBillSummary = async (bills, recipientEmail) => {
                         </div>
                         <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
                             <tr>
-                                <td style="padding: 4px 0; color: #64748b; font-size: 14px; width: 40%;"><strong>Period</strong></td>
+                                <td style="padding: 4px 0; color: #64748b; font-size: 14px; width: 40%;"><strong>Période</strong></td>
                                 <td style="padding: 4px 0; color: #1e293b; font-size: 14px; text-align: right; font-weight: 500;">${bill.billing_period}</td>
                             </tr>
                             ${bill.due_date ? `
                             <tr>
-                                <td style="padding: 4px 0; color: #64748b; font-size: 14px;"><strong>Due Date</strong></td>
+                                <td style="padding: 4px 0; color: #64748b; font-size: 14px;"><strong>Date d'échéance</strong></td>
                                 <td style="padding: 4px 0; color: #ef4444; font-size: 14px; text-align: right; font-weight: 500;">${bill.due_date}</td>
                             </tr>` : ''}
                         </table>
                         
                         <div style="text-align: center;">
-                            <a href="${payLink}" style="display: block; background-color: #0f172a; color: #ffffff; padding: 14px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; text-align: center; transition: all 0.2s;">Pay Now ⚡</a>
+                            <a href="${payLink}" style="display: block; background-color: #0f172a; color: #ffffff; padding: 14px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; text-align: center; transition: all 0.2s;">Payer Maintenant ⚡</a>
                         </div>
                     </div>
                 </div>
         `;
     });
+
+    if (errors && errors.length > 0) {
+        htmlBody += `
+                <!-- Errors -->
+                <div style="margin-top: 30px; border: 1px solid #fecaca; border-radius: 10px; overflow: hidden; background-color: #fef2f2;">
+                    <div style="background-color: #fee2e2; border-bottom: 1px solid #fecaca; padding: 12px 20px; display: flex; align-items: center;">
+                        <span style="font-size: 20px; margin-right: 10px;">⚠️</span>
+                        <h3 style="margin: 0; color: #991b1b; font-size: 16px; font-weight: 700;">Action Requise : Problèmes de connexion</h3>
+                    </div>
+                    <div style="padding: 20px;">
+                        <p style="margin: 0 0 15px 0; color: #991b1b; font-size: 14px;">Les services suivants n'ont pas pu être vérifiés :</p>
+                        <ul style="margin: 0; padding-left: 20px; color: #7f1d1d; font-size: 14px;">
+        `;
+        errors.forEach(err => {
+            htmlBody += `<li style="margin-bottom: 8px;"><strong>${err.provider}</strong>: ${err.error_message || 'Erreur inconnue'}</li>`;
+        });
+        htmlBody += `
+                        </ul>
+                    </div>
+                </div>
+        `;
+    }
 
     htmlBody += `
                 <!-- Total -->

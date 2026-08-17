@@ -152,7 +152,7 @@ app.post('/api/send-email', async (req, res) => {
             return res.status(400).json({ success: false, error: 'No recipient email configured in settings.' });
         }
         
-        const result = await emailService.sendBillSummary(summary.unpaid, recipient);
+        const result = await emailService.sendBillSummary(summary.unpaid, summary.errors, recipient);
         res.json(result);
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });

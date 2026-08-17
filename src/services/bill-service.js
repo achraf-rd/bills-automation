@@ -14,7 +14,7 @@ const getScraperInstance = (providerName) => {
     }
 };
 
-const processScraperResult = (result) => {
+const processScraperResult = async (result) => {
     // Log the scrape execution
     db.logScrape({
         provider: result.provider,
@@ -25,9 +25,21 @@ const processScraperResult = (result) => {
     });
 
     if (result.success && result.bills && result.bills.length > 0) {
-        result.bills.forEach(bill => {
+        for (const bill of result.bills) {
+            // Generate durable CMI link directly during scrape
+            console.log(`[Durable Process] Generating CMI link for ${bill.provider} bill...`);
+            try {
+                const cmiUrl = await module.exports.resolveCmiLink(result.provider, () => {});
+                if (cmiUrl) {
+                    bill.payment_url = cmiUrl;
+                    console.log(`[Durable Process] Successfully attached CMI link for ${bill.provider}`);
+                }
+            } catch (err) {
+                console.error(`[Durable Process] Failed to generate CMI link for ${bill.provider}:`, err.message);
+                bill.payment_url_error = err.message; // Optional tracking
+            }
             db.insertBill(bill);
-        });
+        }
     }
 };
 
@@ -39,7 +51,7 @@ const checkAllBills = async () => {
         console.log(`Starting scraper for ${scraper.name}...`);
         try {
             const result = await scraper.checkBills();
-            processScraperResult(result);
+            await processScraperResult(result);
             results.push(result);
         } catch (error) {
             console.error(`Unexpected error running scraper ${scraper.name}:`, error);
@@ -49,7 +61,7 @@ const checkAllBills = async () => {
                 error_message: error.message,
                 duration_ms: 0
             };
-            processScraperResult(errResult);
+            await processScraperResult(errResult);
             results.push(errResult);
         }
     }
@@ -61,16 +73,18 @@ const checkProvider = async (providerName) => {
     const scraper = getScraperInstance(providerName);
     try {
         const result = await scraper.checkBills();
-        processScraperResult(result);
+        await processScraperResult(result);
         return result;
     } catch (error) {
         console.error(`Unexpected error running scraper ${providerName}:`, error);
-        return {
+        const errResult = {
             provider: providerName,
             success: false,
             error_message: error.message,
             duration_ms: 0
         };
+        await processScraperResult(errResult);
+        return errResult;
     }
 };
 
@@ -103,6 +117,22 @@ const getBillSummary = async () => {
         }
     });
 
+    // Get latest errors
+    const errors = [];
+    const logs = db.prepare(`
+        SELECT provider, success, error_message, created_at 
+        FROM scrape_logs 
+        WHERE id IN (
+            SELECT MAX(id) FROM scrape_logs GROUP BY provider
+        )
+    `).all();
+    
+    logs.forEach(log => {
+        if (log.success === 0) {
+            errors.push(log);
+        }
+    });
+
     // Get history (last 20 bills)
     const history = db.getBills({ limit: 20 });
 
@@ -110,7 +140,8 @@ const getBillSummary = async () => {
         bills: billsByType,
         unpaid: unpaidBills,
         totalAmount: totalAmount,
-        history: history
+        history: history,
+        errors: errors
     };
 };
 
