@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Environment (contains secrets)
+.env
+
+# Database
+data/
+*.db
+
+# Playwright
+playwright-report/
+
+# Screenshots (error debugging)
+screenshots/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# IDE
+.vscode/
+.idea/

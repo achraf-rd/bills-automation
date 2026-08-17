@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bills Automation Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header__left">
+      <h1>💰 Bills Automation</h1>
+      <span class="header__subtitle">Lydec/SRM-CS & Inwi</span>
+    </div>
+    <div class="header__right">
+      <div class="total-badge">
+        <span class="total-badge__label">Total this month</span>
+        <span class="total-badge__amount"><%= typeof totalAmount !== 'undefined' && totalAmount ? totalAmount.toFixed(2) : '0.00' %> MAD</span>
+      </div>
+      <span class="last-check">Last check: <%= typeof lastCheck !== 'undefined' && lastCheck ? lastCheck : 'Never' %></span>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="action-bar">
+      <button class="btn btn--primary" onclick="checkAllBills()">🔄 Check all bills</button>
+      <button class="btn btn--outline" onclick="sendEmail()">📧 Send by email</button>
+      <a href="/settings" class="btn btn--outline">⚙️ Settings</a>
+    </div>
+
+    <div class="bills-grid">
+      <!-- Water Card -->
+      <%- include('partials/bill-card', { bill: (typeof bills !== 'undefined' ? bills.water : null), type: 'water', label: 'Water', emoji: '💧', provider: 'SRM-CS', settings: (typeof settings !== 'undefined' ? settings : {}) }) %>
+      <!-- Electricity Card -->
+      <%- include('partials/bill-card', { bill: (typeof bills !== 'undefined' ? bills.electricity : null), type: 'electricity', label: 'Electricity', emoji: '⚡', provider: 'SRM-CS', settings: (typeof settings !== 'undefined' ? settings : {}) }) %>
+      <!-- Internet Card -->
+      <%- include('partials/bill-card', { bill: (typeof bills !== 'undefined' ? bills.internet : null), type: 'internet', label: 'Internet', emoji: '📶', provider: 'Inwi', settings: (typeof settings !== 'undefined' ? settings : {}) }) %>
+    </div>
+
+    <section class="history-section">
+      <h2>📊 History</h2>
+      <% if (typeof history !== 'undefined' && history && history.length > 0) { %>
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>Provider</th>
+              <th>Period</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% history.forEach(function(item) { %>
+              <tr>
+                <td><strong><%= item.provider %></strong></td>
+                <td><%= item.billing_period %></td>
+                <td><strong><%= item.amount %> MAD</strong></td>
+                <td><span class="status-badge status-badge--<%= item.status === 'paid' ? 'paid' : 'unpaid' %>"><%= item.status === 'paid' ? 'Paid' : 'Unpaid' %></span></td>
+                <td><%= item.scraped_at %></td>
+                <td>
+                  <div style="display: flex; gap: 0.4rem;">
+                    <% if (item.status !== 'paid') { %>
+                      <button class="btn btn--primary" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;" onclick="payBill('<%= item.id %>', '<%= item.payment_url || '' %>', '<%= item.provider %>')">Pay</button>
+                      <button class="btn btn--success" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;" onclick="confirmMarkPaid('<%= item.id %>')">Mark Paid</button>
+                    <% } else { %>
+                      <span style="color: var(--color-success); font-size: 0.75rem;">✓ Payment completed</span>
+                    <% } %>
+                  </div>
+                </td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      <% } else { %>
+        <div class="empty-state">
+          <div class="empty-state__icon">📭</div>
+          <p>No history available.</p>
+        </div>
+      <% } %>
+    </section>
+  </main>
+
+  <div id="toast-container"></div>
+  
+  <div id="loading-overlay" class="loading-overlay" style="display:none;">
+    <div class="spinner"></div>
+    <div class="loading-msg" style="color: var(--text-primary); font-weight: 500;">Loading...</div>
+  </div>
+
+  <div id="confirm-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-content">
+      <h3 class="modal-title">Confirm action</h3>
+      <p>Do you want to mark this bill as paid?</p>
+      <div class="modal-actions">
+        <button class="btn btn--outline" onclick="closeModal()">Cancel</button>
+        <button class="btn btn--success" onclick="confirmModalAction()">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

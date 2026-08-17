@@ -1,0 +1,32 @@
+{
+  "name": "bills-automation",
+  "version": "1.0.0",
+  "description": "Moroccan utility bills automation - Lydec/SRM-CS (water + electricity) & Inwi (internet)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "bills",
+    "automation",
+    "lydec",
+    "srm",
+    "inwi",
+    "morocco"
+  ],
+  "author": "Achraf Rachid",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^11.10.0",
+    "dotenv": "^16.6.1",
+    "ejs": "^3.1.10",
+    "express": "^4.22.2",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.10.1",
+    "playwright": "^1.62.1"
+  },
+  "allowScripts": {
+    "better-sqlite3@11.10.0": true
+  }
+}

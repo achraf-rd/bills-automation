@@ -1,0 +1,697 @@
+<!DOCTYPE html><html class="ltr yui3-js-enabled webkit ltr js chrome chrome151 chrome151-0 win secure" dir="ltr" lang="fr-FR"><head><meta name="description" content="Site Web Institutionnel et Agence en Ligne Lydec"> <meta name="keywords" content="Lydec, Agence en Ligne, Paiement Facture Lydec, Paiement en Ligne Lydec"> <meta name="author" content="Lydec">  <link rel="stylesheet" href="https://client.lydec.ma/AgenceEnLigne-theme/css/nyroModal.css" type="text/css" media="screen"> <link rel="stylesheet" type="text/css" href="https://client.lydec.ma/AgenceEnLigne-theme/css/front.css" media="screen"> <link rel="stylesheet" type="text/css" href="https://client.lydec.ma/AgenceEnLigne-theme/css/jquery.tablescroll.css"> <link rel="stylesheet" type="text/css" href="https://client.lydec.ma/AgenceEnLigne-theme/css/jquery.alerts.css"> <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script type="text/javascript" src="https://client.lydec.ma/AgenceEnLigne-theme/js/jquery.min.js"></script> <script type="text/javascript" src="https://client.lydec.ma/AgenceEnLigne-theme/js/jquery.tablescroll.js"></script> <script type="text/javascript" src="https://client.lydec.ma/AgenceEnLigne-theme/js/jquery.nyroModal.custom.js"></script> <script type="text/javascript" src="https://client.lydec.ma/AgenceEnLigne-theme/js/jquery.tipsy.js"></script> <link rel="stylesheet" type="text/css" href="https://client.lydec.ma/AgenceEnLigne-theme/css/jquery-ui.css"> <script type="text/javascript" src="https://client.lydec.ma/AgenceEnLigne-theme/js/jquery-ui.min.js"></script> <script src="https://client.lydec.ma/AgenceEnLigne-theme/js/jquery.ui.datepicker-fr.js"></script> <script src="https://client.lydec.ma/AgenceEnLigne-theme/js/jquery.ui.datepicker-fr-CH.js"></script> <script src="https://client.lydec.ma/AgenceEnLigne-theme/js/jquery.alerts.js"></script> <script>/*<![CDATA[*/
+  			$(document).ready(function() {
+   			 $("#valeur").datepicker({
+    
+     changeYear: true,
+     yearRange: '-14:+10'
+                                        
+});
+ 			 });
+ 			 $(document).ready(function() {
+   			 $("#dateDebut").datepicker({
+    
+     changeYear: true,
+     yearRange: '-14:+10'
+                                        
+});
+ 			 });
+ 			 $(document).ready(function() {
+   			 $("#dateFin").datepicker({
+    
+     changeYear: true,
+     yearRange: '-14:+10'
+                                        
+});
+ 			 });
+  		/*]]>*/</script> <script type="text/javascript">/*<![CDATA[*/
+		$(function() {
+		  $('.nyroModal').nyroModal();
+		});
+		/*]]>*/</script> <script type="text/javascript">/*<![CDATA[*/
+		/*<![CDATA[*/
+		
+		jQuery(document).ready(function($)
+		{
+			$('#thetable').tableScroll({height:300});
+		
+			$('#thetable2').tableScroll();
+		});
+		
+		/*]]>*/
+
+
+		/*]]>*/</script> <!--[if lte IE 6]> <script src="https://client.lydec.ma/AgenceEnLigne-theme/ie6/warning.js"></script> <script>/*<![CDATA[*/window.onload=function(){e("https://client.lydec.ma/AgenceEnLigne-theme/ie6/")}/*]]>*/</script> <![endif]--> <title>Paiement de mes factures - Accueil</title> <meta content="text/html; charset=UTF-8" http-equiv="content-type"> <link rel="Shortcut Icon" href="/AgenceEnLigne-theme/images/favicon.ico"> <link href="/site/html/portal/css.jsp?browserId=other&amp;themeId=AgenceEnLigne_WAR_AgenceEnLignetheme&amp;colorSchemeId=01&amp;minifierType=css&amp;languageId=fr_FR&amp;b=6011&amp;t=1727880511000" rel="stylesheet" type="text/css"> <link href="/site/html/portlet/journal_content/css/main.jsp?browserId=other&amp;themeId=AgenceEnLigne_WAR_AgenceEnLignetheme&amp;colorSchemeId=01&amp;minifierType=css&amp;languageId=fr_FR&amp;b=6011&amp;t=1595004690100" rel="stylesheet" type="text/css"> <script type="text/javascript">/*<![CDATA[*/
+	// <![CDATA[
+		var Liferay = {
+			Browser: {
+				acceptsGzip: function() {
+					return true;
+				},
+				getMajorVersion: function() {
+					return 151.0;
+				},
+				getRevision: function() {
+					return "537.36";
+				},
+				getVersion: function() {
+					return "151.0.7922.34";
+				},
+				isAir: function() {
+					return false;
+				},
+				isChrome: function() {
+					return true;
+				},
+				isFirefox: function() {
+					return false;
+				},
+				isGecko: function() {
+					return true;
+				},
+				isIe: function() {
+					return false;
+				},
+				isIphone: function() {
+					return false;
+				},
+				isLinux: function() {
+					return false;
+				},
+				isMac: function() {
+					return false;
+				},
+				isMobile: function() {
+					return false;
+				},
+				isMozilla: function() {
+					return true;
+				},
+				isOpera: function() {
+					return false;
+				},
+				isRtf: function() {
+					return true;
+				},
+				isSafari: function() {
+					return true;
+				},
+				isSun: function() {
+					return false;
+				},
+				isWap: function() {
+					return false;
+				},
+				isWapXhtml: function() {
+					return false;
+				},
+				isWebKit: function() {
+					return true;
+				},
+				isWindows: function() {
+					return true;
+				},
+				isWml: function() {
+					return false;
+				}
+			},
+
+			ThemeDisplay: {
+				getCompanyId: function() {
+					return "10131";
+				},
+				getCompanyGroupId: function() {
+					return "10164";
+				},
+				getUserId: function() {
+					return "2206931";
+				},
+
+				
+					getUserName: function() {
+						return "\u0045\u0054\u0054\u0041\u0048\u0045\u0052\u0059\u0020\u004d\u0041\u004c\u0049\u004b\u0041\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0045\u0054\u0054\u0041\u0048\u0045\u0052\u0059\u0020\u004d\u0041\u004c\u0049\u004b\u0041\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020";
+					},
+				
+
+				getDoAsUserIdEncoded: function() {
+					return "";
+				},
+				getPlid: function() {
+					return "10469";
+				},
+
+				
+					getLayoutId: function() {
+						return "31";
+					},
+					getLayoutURL: function() {
+						return "/site/fr/web/lydec/paiement";
+					},
+					isPrivateLayout: function() {
+						return "false";
+					},
+					getParentLayoutId: function() {
+						return "7";
+					},
+				
+
+				getScopeGroupId: function() {
+					return "10288";
+				},
+				getParentGroupId: function() {
+					return "10288";
+				},
+				isImpersonated: function() {
+					return false;
+				},
+				isSignedIn: function() {
+					return true;
+				},
+				getDefaultLanguageId: function() {
+					return "fr_FR";
+				},
+				getLanguageId: function() {
+					return "fr_FR";
+				},
+				isFreeformLayout: function() {
+					return false;
+				},
+				isStateExclusive: function() {
+					return false;
+				},
+				isStateMaximized: function() {
+					return false;
+				},
+				isStatePopUp: function() {
+					return false;
+				},
+				getPathContext: function() {
+					return "/site";
+				},
+				getPathImage: function() {
+					return "/site/image";
+				},
+				getPathJavaScript: function() {
+					return "/site/html/js";
+				},
+				getPathMain: function() {
+					return "/site/fr/c";
+				},
+				getPathThemeImages: function() {
+					return "/AgenceEnLigne-theme/images";
+				},
+				getPathThemeRoot: function() {
+					return "/AgenceEnLigne-theme/";
+				},
+				getURLHome: function() {
+					return "https://client.lydec.ma/site/fr/web/guest";
+				},
+				getSessionId: function() {
+					return "Tx-Cv5VmdWs4Dg8zsbR8Ohl";
+				},
+				getPortletSetupShowBordersDefault: function() {
+					return true;
+				}
+			},
+
+			PropsValues: {
+				NTLM_AUTH_ENABLED: false
+			}
+		};
+
+		var themeDisplay = Liferay.ThemeDisplay;
+
+		
+
+		Liferay.AUI = {
+			getBaseURL: function() {
+				return 'https://client.lydec.ma/site/html/js/aui/';
+			},
+			getCombine: function() {
+				return true;
+			},
+			getComboPath: function() {
+				return '/site/combo/?browserId=other&minifierType=js&languageId=fr_FR&b=6011&t=1294920922000&p=/site/html/js&';
+			},
+			getFilter: function() {
+				
+					
+						return {
+							replaceStr: function(match, fragment, string) {
+								return fragment + 'm=' + (match.split('/site/html/js')[1] || '');
+							},
+							searchExp: '(\\?|&)/([^&]+)'
+						};
+					
+					
+				
+			},
+			getJavaScriptRootPath: function() {
+				return '/site/html/js';
+			},
+			getRootPath: function() {
+				return '/site/html/js/aui/';
+			}
+		};
+
+		window.YUI_config = {
+			base: Liferay.AUI.getBaseURL(),
+			comboBase: Liferay.AUI.getComboPath(),
+			fetchCSS: false,
+			filter: Liferay.AUI.getFilter(),
+			root: Liferay.AUI.getRootPath()
+		};
+
+		
+
+		Liferay.currentURL = '\x2fsite\x2ffr\x2fweb\x2flydec\x2fpaiement\x3fp_auth\x3dUG5mkvhl\x26p_p_id\x3dImpayes_WAR_Impayesportlet\x26p_p_lifecycle\x3d1\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3dcolumn-3\x26p_p_col_pos\x3d1\x26p_p_col_count\x3d2\x26_Impayes_WAR_Impayesportlet__spage\x3d\x252fportlet_action\x252fimpayes_portlet\x252faction';
+		Liferay.currentURLEncoded = '%2fsite%2ffr%2fweb%2flydec%2fpaiement%3fp_auth%3dUG5mkvhl%26p_p_id%3dImpayes_WAR_Impayesportlet%26p_p_lifecycle%3d1%26p_p_state%3dnormal%26p_p_mode%3dview%26p_p_col_id%3dcolumn-3%26p_p_col_pos%3d1%26p_p_col_count%3d2%26_Impayes_WAR_Impayesportlet__spage%3d%252fportlet_action%252fimpayes_portlet%252faction';
+	// ]]>
+/*]]>*/</script> <script src="/site/html/js/everything.jsp?browserId=other&amp;themeId=AgenceEnLigne_WAR_AgenceEnLignetheme&amp;colorSchemeId=01&amp;minifierType=js&amp;minifierBundleId=javascript.everything.files&amp;languageId=fr_FR&amp;b=6011&amp;t=1294920922000" type="text/javascript"></script> <script type="text/javascript">/*<![CDATA[*/
+	// <![CDATA[
+		
+
+			
+
+			
+				Liferay.Portlet.list = ['71_INSTANCE_qc5T','56_INSTANCE_oAL9','Impayes_WAR_Impayesportlet'];
+			
+		
+	// ]]>
+/*]]>*/</script> <link class="lfr-css-file" href="/AgenceEnLigne-theme/css/main.css?browserId=other&amp;minifierType=css&amp;languageId=fr_FR&amp;b=6011&amp;t=1727880511000" rel="stylesheet" type="text/css"> <style type="text/css">
+	/* <![CDATA[ */
+		
+			#heading .logo {
+				background: url(/site/image/company_logo?img_id=10322&amp;t=1782831310711) no-repeat;
+				display: block;
+				font-size: 0;
+				height: 156px;
+				text-indent: -9999em;
+				width: 258px;
+			}
+		
+
+		
+	/* ]]> */
+</style> <style type="text/css">
+
+		
+
+			
+
+		
+
+			
+
+		
+
+			
+
+		
+
+			
+
+		
+
+	</style> <script id="aui_3_2_0_156" type="text/javascript" charset="utf-8" src="/site/combo/?browserId=other&amp;minifierType=js&amp;languageId=fr_FR&amp;b=6011&amp;t=1294920922000&amp;p=/site/html/js&amp;m=/aui/base/base-base-min.js&amp;m=/aui/dom/dom-base-min.js&amp;m=/aui/dom/dom-style-min.js&amp;m=/aui/dom/selector-native-min.js&amp;m=/aui/dom/selector-css2-min.js&amp;m=/aui/node/node-base-min.js&amp;m=/aui/event/event-min.js&amp;m=/aui/node/node-style-min.js&amp;m=/aui/dom/dom-screen-min.js&amp;m=/aui/node/node-screen-min.js&amp;m=/aui/pluginhost/pluginhost-min.js&amp;m=/aui/node/node-pluginhost-min.js&amp;m=/aui/anim/anim-min.js&amp;m=/aui/collection/collection-min.js&amp;m=/aui/base/base-pluginhost-min.js&amp;m=/aui/node/node-event-delegate-min.js&amp;m=/aui/classnamemanager/classnamemanager-min.js&amp;m=/aui/widget/widget-min.js&amp;m=/aui/aui-component/aui-component-min.js&amp;m=/aui/aui-delayed-task/aui-delayed-task-min.js&amp;m=/aui/dom/selector-min.js&amp;m=/aui/aui-selector/aui-selector-min.js&amp;m=/aui/aui-node/aui-node-min.js"></script><script id="aui_3_2_0_187" type="text/javascript" charset="utf-8" src="/site/combo/?browserId=other&amp;minifierType=js&amp;languageId=fr_FR&amp;b=6011&amp;t=1294920922000&amp;p=/site/html/js&amp;m=/aui/dom/dom-min.js&amp;m=/aui/node/node-min.js&amp;m=/aui/plugin/plugin-min.js&amp;m=/aui/event-simulate/event-simulate-min.js&amp;m=/aui/node/node-event-simulate-min.js&amp;m=/aui/node-focusmanager/node-focusmanager-min.js&amp;m=/aui/dom/selector-css3-min.js&amp;m=//liferay/menu.js&amp;m=//liferay/notice.js&amp;m=/aui/queue-promote/queue-promote-min.js&amp;m=/aui/datatype/datatype-xml-min.js&amp;m=/aui/io/io-min.js&amp;m=/aui/json/json-min.js&amp;m=//liferay/poller.js&amp;m=/aui/base/base-build-min.js&amp;m=/aui/widget/widget-position-min.js&amp;m=/aui/widget/widget-stack-min.js&amp;m=/aui/widget/widget-position-align-min.js&amp;m=/aui/widget/widget-position-constrain-min.js&amp;m=/aui/widget/widget-stdmod-min.js&amp;m=/aui/aui-overlay/aui-overlay-base-min.js&amp;m=/aui/async-queue/async-queue-min.js&amp;m=/aui/aui-parse-content/aui-parse-content-min.js&amp;m=/aui/querystring/querystring-stringify-min.js&amp;m=/aui/aui-overlay/aui-overlay-mask-min.js&amp;m=/aui/substitute/substitute-min.js&amp;m=/aui/aui-loading-mask/aui-loading-mask-min.js&amp;m=/aui/aui-io/aui-io-min.js&amp;m=/aui/cookie/cookie-min.js&amp;m=//liferay/session.js"></script><script id="aui_3_2_0_1106" type="text/javascript" charset="utf-8" src="/site/combo/?browserId=other&amp;minifierType=js&amp;languageId=fr_FR&amp;b=6011&amp;t=1294920922000&amp;p=/site/html/js&amp;m=//liferay/hudcrumbs.js"></script></head> <body class=" controls-visible signed-in public-page"> <div id="wrapper"> <a href="#main-content" id="skip-to-content">Saut au contenu</a> <header id="banner" role="banner"> <div id="p_p_id_CRC_WAR_CRCportlet_INSTANCE_pS5Y_" class="portlet-boundary portlet-boundary_CRC_WAR_CRCportlet_  portlet-static portlet-static-end CRC-portlet "> <a id="p_CRC_WAR_CRCportlet_INSTANCE_pS5Y"></a> <div class="portlet-borderless-container" style=""> <div class="portlet-body"> <meta http-equiv="Content-Type" content="text/html;charset=utf-8"> <style> .logo-crc {float:right;padding-top:10px;padding-right:10px;}
+	.menu-site-map-top { position: absolute; right: 187px; top: 36px;color: #717171}
+	.menu-site-map-top a{ color: #717171; text-decoration: none; font-weight: bold;}
+	.menu-site-map-top a:hover{ color: #0089c8; text-decoration: none;}
+	.menu-site-map-top a:ACTIVE{ color: #0089c8;}
+	.lange {position: absolute;top: 16px;left: 142px;}
+	.lange a{text-decoration: none;}
+	.lange a:hover{ color: #0089c8; text-decoration: none;}
+	.lange a:active{ color: #0089c8;}
+	.arabe {font-size: 16px;}
+
+</style> <div class="menu-site-map-top"><a href="/site/fr/web/guest/accueil"> Accueil </a> | <a href="https://client.lydec.ma/site/fr/web/guest/nous-contacter"> Nous contacter </a></div> <div class="logo-crc"><img src="/site/image/image_gallery?img_id=3304957&amp;t=1727858371269" border="0" style="width:160px;padding-left:30px"></div> </div> </div> </div> <div class="portlet-search"> <form action="https://client.lydec.ma/site/fr/web/lydec/paiement?p_p_auth=7t9LTyU4&amp;p_p_id=3&amp;p_p_lifecycle=0&amp;p_p_state=maximized&amp;p_p_mode=view&amp;_3_struts_action=%2fsearch%2fsearch" method="post" name="ctem_3_fm" onsubmit="ctem_3_search(); return false;"> <input name="_3_keywords" size="30" type="text" value="" style=""> <select name="_3_groupId"> <option value="0" selected="">Tout</option> <option value="10288">Cette Communauté</option> </select> <input align="absmiddle" border="0" src="/AgenceEnLigne-theme/images/common/search.png" title="Rechercher" type="image" style=""> </form></div> <div id="p_p_id_UserDeConnect_WAR_UserDeConnectportlet_INSTANCE_QB5c_" class="portlet-boundary portlet-boundary_UserDeConnect_WAR_UserDeConnectportlet_  portlet-static portlet-static-end UserDeConnect-portlet "> <a id="p_UserDeConnect_WAR_UserDeConnectportlet_INSTANCE_QB5c"></a> <div class="portlet-borderless-container" style=""> <div class="portlet-body"> <script type="text/javascript">/*<![CDATA[*/
+        $(document).ready(function() {
+
+            $(".signin").click(function(e) {          
+				e.preventDefault();
+                $("fieldset#signin_menu").toggle();
+				$(".signin").toggleClass("menu-open");
+            });
+			
+			$("fieldset#signin_menu").mouseup(function() {
+				return false
+			});
+			$(document).mouseup(function(e) {
+				if($(e.target).parent("a.signin").length==0) {
+					$(".signin").removeClass("menu-open");
+					$("fieldset#signin_menu").hide();
+				}
+			});			
+			
+        });
+/*]]>*/</script> <script type="text/javascript"> $(function() {
+	  $('#forgot_username_link').tipsy({gravity: 'w'});   
+    });
+  </script> <style> .user-connect {
+
+    font-weight: bold;
+    height: 29px;
+    padding-top: 6px;
+    position: absolute;
+    right: 10px;
+    text-align: center;
+    top: 149px;
+
+}
+
+</style> <div class="user-connect" style="top: 211px;"> <div id="topnav" class="topnav"> Bienvenue <a href="login" class="signin"><span> ETTAHERY MALIKA               
+</span></a> </div> <fieldset id="signin_menu"> <p class="forgot-username"> <a title="Déconnexion" href="/c/portal/logout">Déconnexion</a> </p> </fieldset> </div> </div> </div> </div> <hgroup id="heading"> <h1 class="company-title"> <a class="logo" href="/site/fr/web/guest/accueil" title="Allez à Accueil"> <span>Accueil</span> </a> </h1> <h2 class="community-title"> <a href="https://client.lydec.ma/site/fr/web/lydec/paiement?p_auth=UG5mkvhl&amp;p_p_auth=m8jnI47Q&amp;p_p_id=49&amp;p_p_lifecycle=1&amp;p_p_state=normal&amp;p_p_mode=view&amp;p_p_col_pos=1&amp;p_p_col_count=2&amp;_49_struts_action=%2fmy_places%2fview&amp;_49_groupId=10288&amp;_49_privateLayout=false" title="Allez à Agence en ligne"> <span>Agence en ligne</span> </a> </h2> <h3 class="page-title"> <span>Paiement de mes factures</span> </h3> </hgroup> <nav class="sort-pages modify-pages" id="navigation" style="background: rgb(42, 155, 214);"> <h1> <span>Navigation</span> </h1> <ul>  <li style="background: url(&quot;/site/image/image_gallery?uuid=8761a77c-01d2-4570-96fd-4bbf03902b6c&amp;groupId=3285894&amp;t=1727257562987&quot;) right center no-repeat;"> <a href="#"><span> Mon Compte</span></a> <ul class="child-menu"> <li style="background: url(&quot;/site/image/image_gallery?uuid=8761a77c-01d2-4570-96fd-4bbf03902b6c&amp;groupId=3285894&amp;t=1727257562987&quot;) right center no-repeat;"> <a href="/site/fr/web/lydec/infos-client">Mon profil</a> </li> <li style="background: url(&quot;/site/image/image_gallery?uuid=8761a77c-01d2-4570-96fd-4bbf03902b6c&amp;groupId=3285894&amp;t=1727257562987&quot;) right center no-repeat;"> <a href="/site/fr/web/lydec/mes-contrats">Mes contrats</a> </li> <li style="background: url(&quot;/site/image/image_gallery?uuid=8761a77c-01d2-4570-96fd-4bbf03902b6c&amp;groupId=3285894&amp;t=1727257562987&quot;) right center no-repeat;"> <a href="/site/fr/web/lydec/mes-reglements">Mes règlements</a> </li> <li style="background: url(&quot;/site/image/image_gallery?uuid=8761a77c-01d2-4570-96fd-4bbf03902b6c&amp;groupId=3285894&amp;t=1727257562987&quot;) right center no-repeat;"> <a href="/site/fr/web/lydec/mes-impayes">Mes impayés</a> </li> <li style="background: url(&quot;/site/image/image_gallery?uuid=8761a77c-01d2-4570-96fd-4bbf03902b6c&amp;groupId=3285894&amp;t=1727257562987&quot;) right center no-repeat;"> <a href="/site/fr/web/lydec/mes-factures-multisites">Mes factures</a> </li> </ul> </li> <li class="selected" style="background: url(&quot;/site/image/image_gallery?uuid=8761a77c-01d2-4570-96fd-4bbf03902b6c&amp;groupId=3285894&amp;t=1727257562987&quot;) right center no-repeat;"> <a href="#"><span> Services</span></a> <ul class="child-menu"> <li class="selected" style="background: url(&quot;/site/image/image_gallery?uuid=8761a77c-01d2-4570-96fd-4bbf03902b6c&amp;groupId=3285894&amp;t=1727257562987&quot;) right center no-repeat;"> <a href="/site/fr/web/lydec/paiement">Paiement de mes factures</a> </li> <li style="background: url(&quot;/site/image/image_gallery?uuid=8761a77c-01d2-4570-96fd-4bbf03902b6c&amp;groupId=3285894&amp;t=1727257562987&quot;) right center no-repeat;"> <a href="/site/fr/web/lydec/payer-pour-un-proche">Paiement pour un tiers</a> </li> <li style="background: url(&quot;/site/image/image_gallery?uuid=8761a77c-01d2-4570-96fd-4bbf03902b6c&amp;groupId=3285894&amp;t=1727257562987&quot;) right center no-repeat;"> <a href="/site/fr/web/lydec/sms">Inscription à SMS Info gratuit</a> </li> <li style="background: url(&quot;/site/image/image_gallery?uuid=8761a77c-01d2-4570-96fd-4bbf03902b6c&amp;groupId=3285894&amp;t=1727257562987&quot;) right center no-repeat;"> <a href="/site/fr/web/lydec/auto-releve">Auto relève</a> </li> </ul> </li> <li style="background: url(&quot;/site/image/image_gallery?uuid=8761a77c-01d2-4570-96fd-4bbf03902b6c&amp;groupId=3285894&amp;t=1727257562987&quot;) right center no-repeat;"> <a href="#"><span> Conseils</span></a> <ul class="child-menu"> <li style="background: url(&quot;/site/image/image_gallery?uuid=8761a77c-01d2-4570-96fd-4bbf03902b6c&amp;groupId=3285894&amp;t=1727257562987&quot;) right center no-repeat;"> <a href="/site/fr/web/lydec/conseils">Conseils</a> </li> </ul> </li> <li style="background: url(&quot;/site/image/image_gallery?uuid=8761a77c-01d2-4570-96fd-4bbf03902b6c&amp;groupId=3285894&amp;t=1727257562987&quot;) right center no-repeat;"> <a href="#"><span> Simulation</span></a> <ul class="child-menu"> <li style="background: url(&quot;/site/image/image_gallery?uuid=8761a77c-01d2-4570-96fd-4bbf03902b6c&amp;groupId=3285894&amp;t=1727257562987&quot;) right center no-repeat;"> <a href="/site/fr/web/lydec/ma-facture">Ma facture</a> </li> </ul> </li> <li style="background: url(&quot;/site/image/image_gallery?uuid=8761a77c-01d2-4570-96fd-4bbf03902b6c&amp;groupId=3285894&amp;t=1727257562987&quot;) right center no-repeat;"> <a href="#"><span> Télécharger</span></a> <ul class="child-menu"> <li style="background: url(&quot;/site/image/image_gallery?uuid=8761a77c-01d2-4570-96fd-4bbf03902b6c&amp;groupId=3285894&amp;t=1727257562987&quot;) right center no-repeat;"> <a href="/site/fr/web/lydec/mon-releve-de-consommation">Mon relevé de consommation</a> </li> <li style="background: url(&quot;/site/image/image_gallery?uuid=8761a77c-01d2-4570-96fd-4bbf03902b6c&amp;groupId=3285894&amp;t=1727257562987&quot;) right center no-repeat;"> <a href="/site/fr/web/lydec/mes-releves-des-impayes">Mon relevé des impayés</a> </li> <li style="background: url(&quot;/site/image/image_gallery?uuid=8761a77c-01d2-4570-96fd-4bbf03902b6c&amp;groupId=3285894&amp;t=1727257562987&quot;) right center no-repeat;"> <a href="/site/fr/web/lydec/mes-releves-des-reglements">Mon relevé des règlements</a> </li> </ul> </li> </ul> </nav> </header> <div id="content"> <div id="p_p_id_103_" class="portlet-boundary portlet-boundary_103_  portlet-static portlet-static-end  "> <a id="p_103"></a> </div> <div class="columns-1-2" id="main-content" role="main"> <div class="portlet-layout"> <div class="aui-top-agence portlet-column portlet-column-only" id="column-1"> <div class="portlet-dropzone empty portlet-column-content portlet-column-content-only" id="layout-column_column-1"></div> <nav class="site-breadcrumbs" id="breadcrumbs"> <h1> <span>Chapelure</span> </h1> <ul class="breadcrumbs breadcrumbs-style-1 lfr-component"> <li class="first"><span><a href="https://client.lydec.ma/site/fr">Accueil</a></span></li><li><span><a href="/site/fr/web/lydec">Agence en ligne</a></span></li><li><span><a href="/site/fr/web/lydec/services">Services</a></span></li><li class="last"><span><a href="/site/fr/web/lydec/paiement">Paiement de mes factures</a></span></li> </ul> </nav> </div> </div> <div class="portlet-layout"> <div class="aui-w195 portlet-column portlet-column-first" id="column-2"> <div class="portlet-dropzone portlet-column-content portlet-column-content-first" id="layout-column_column-2"> <div id="p_p_id_71_INSTANCE_qc5T_" class="portlet-boundary portlet-boundary_71_  portlet-static portlet-static-end portlet-navigation "> <a id="p_71_INSTANCE_qc5T"></a> <div class="portlet-borderless-container" style=""> <div class="portlet-body"> <div class="nav-menu nav-menu-style-"> <h2> <a href="/site/fr/web/lydec/services">Services</a> </h2> <ul class="layouts level-1"><li class="selected "><a class="selected " href="/site/fr/web/lydec/paiement"> Paiement de mes factures</a></li><li class=""><a class="" href="/site/fr/web/lydec/payer-pour-un-proche"> Paiement pour un tiers</a></li><li class=""><a class="" href="/site/fr/web/lydec/sms"> Inscription à SMS Info gratuit</a></li><li class=""><a class="" href="/site/fr/web/lydec/auto-releve"> Auto relève</a></li></ul> </div> </div> </div> </div> </div> <div id="p_p_id_Suiveznousagence_WAR_Suiveznousagenceportlet_INSTANCE_9FKy_" class="portlet-boundary portlet-boundary_Suiveznousagence_WAR_Suiveznousagenceportlet_  portlet-static portlet-static-end Suivez-nous-agence-portlet " style="display: none;"> <a id="p_Suiveznousagence_WAR_Suiveznousagenceportlet_INSTANCE_9FKy"></a> <div class="portlet-borderless-container" style=""> <div class="portlet-body"> <style> .img-icon-lien-sociaux img {padding-right: 8px;}
+.separateur-suivez-nous {height: 30px;}
+</style> <div style="margin-top: 200px;  padding-left: 10px;"> <div class="separateur-suivez-nous"> </div> <div style="color: #929292; font-weight: bold; border-bottom: 1px solid #e7e7e7;">Suivez-nous</div><br> <div class="img-icon-lien-sociaux"><a href="http://twitter.com/#!/lydecweb" target="_blank"><img border="0" alt="Lydec sur twitter" src="/Suivez-nous-agence-portlet/images/icon-twitter.png"></a><a href="http://www.facebook.com/lydecnet" target="_blank"><img border="0" alt="Lydec sur facebook" src="/Suivez-nous-agence-portlet/images/icon-facebook.png"></a><a href="http://www.youtube.com/elydec" target="_blank"><img border="0" alt="Lydec sur youtube" src="/Suivez-nous-agence-portlet/images/icon-youtube.png"></a></div> <br> <div style="color: #929292; font-weight: bold; border-bottom: 1px solid #e7e7e7;">Applications Mobiles SRM Casablanca-Settat </div><br> <div><a href="http://itunes.apple.com/ye/app/lydec-s.a./id467171786?mt=8" target="_blank"><img border="0" alt="App Store" src="/Suivez-nous-agence-portlet/images/app-store.png"></a><a href="https://play.google.com/store/apps/details?id=ma.lydec.iphone.android" target="_blank"><img border="0" alt="Android Market" src="/Suivez-nous-agence-portlet/images/android-market.png"></a><a href="http://appworld.blackberry.com/webstore/content/reviews/74738/?lang=fr" target="_blank"><img border="0" alt="BlackBerry App World" src="/Suivez-nous-agence-portlet/images/blackberry-app-world.png"></a></div> <div class="separateur-suivez-nous"> </div> <div style="color: #929292; font-weight: bold; border-bottom: 1px solid #e7e7e7;">Télécharger les Conditions Générales d'Utilisation de l'Agence en Ligne et du Paiement </div><br> <img border="0" alt="App Store" src="/Suivez-nous-agence-portlet/images/telecharger.png" style="vertical-align:middle;"> <a href="/documents/10156/26857/CGU-AEL.pdf" title="Les Conditions Générales d'Utilisation de l'Agence en Ligne"><strong>Agence en Ligne</strong></a> <br> <img border="0" alt="App Store" src="/Suivez-nous-agence-portlet/images/telecharger.png" style="vertical-align:middle;"> <a href="/documents/10156/26857/CGU-PEL.pdf" title="Les Conditions Générales d'Utilisation de Paiement"><strong>Paiement</strong> </a> <div class="separateur-suivez-nous"> </div> </div> </div> </div> </div> </div> <div class="aui-w590 portlet-column portlet-column-last" id="column-3"> <div class="portlet-dropzone portlet-column-content portlet-column-content-last" id="layout-column_column-3"> <div id="p_p_id_56_INSTANCE_oAL9_" class="portlet-boundary portlet-boundary_56_  portlet-static portlet-static-end portlet-journal-content "> <a id="p_56_INSTANCE_oAL9"></a> <div class="portlet-borderless-container" style=""> <div class="portlet-body"> <div class="journal-content-article" id="article_10131_10288_3300915_2.5"> <style type="text/css">
+#sidebar {
+display:none;
+}
+.text-lydec-vous {display:none;}
+.blog-information {display:none;}
+.top-lydec-vous {display:none;}
+.lien-sociaux {
+    background: none repeat scroll 0 0 #FFFFFF;
+    width: inherit!important;
+    text-align: center!important;
+float:none!important; }</style> <script>/*<![CDATA[*/
+$(document).ready(function() {
+$('*').contents().filter(function() {
+        return this.nodeType === 3 && this.nodeValue.includes('SRM Casablanca-Settat'); // nodeType 3 est un nœud de texte
+    }).each(function() {
+        this.nodeValue = this.nodeValue.replace(/SRM Casablanca-Settat/g, 'SRM Casablanca-Settat');
+    });
+
+
+$('.lange').css('left', '261px');
+$('.icon-lien-sociaux img').first().attr('src', '/site/image/image_gallery?uuid=a60cbc39-d93e-46e9-8dae-b347119ab019&groupId=3285894&t=1727184101163');
+$('.powered-by a').attr('href', 'http://www.srm-cs.ma').text('www.srm-cs.ma');
+var $image = $('.logo-crc img');
+    $image.attr('src', '/site/image/image_gallery?img_id=3304957&t=1727858371269');
+    $image.css({
+        'width': '160px',
+        'padding-left': '30px'
+    });
+
+$('.vous-etes-main img[src="/VousEtes-portlet/images/agence-en-ligne.png"]').attr('src', '/site/image/image_gallery?uuid=b636e19a-1cc7-471f-bd50-1d6c46e3a44c&groupId=3285894&t=1727173174553');
+
+
+$('.logo').attr('href', '/site/fr/web/guest/accueil');
+$('.menu-site-map-top a[href="https://client.lydec.ma/site/fr/web/guest/accueil"]').attr('href', '/site/fr/web/guest/accueil');
+$('.lange a[href="https://client.lydec.ma/site/fr/web/guest/accueil"]').attr('href', '/site/fr/web/guest/accueil');
+
+$('nav.sort-pages a:contains("Accueil")').attr('href', '/site/fr/web/guest/accueil');
+$('nav.sort-pages a:contains("Particuliers")').attr('href', '/site/fr/web/guest/particuliers');
+$('nav.sort-pages a:contains("Professionnels")').attr('href', '/site/fr/web/guest/professionnels');
+$('nav.sort-pages a:contains("Administrations")').attr('href', '/site/fr/web/guest/administrations');
+$('nav.sort-pages a:contains("Grandes entreprises")').attr('href', '/site/fr/web/guest/grandes-entreprises');
+$('nav.sort-pages a:contains("Promoteurs ou Aménageurs")').attr('href', '/site/fr/web/guest/lotisseur-ou-promoteur');
+
+$('.vous-etes-main a:contains("Particuliers")').attr('href', '/site/fr/web/guest/particuliers');
+$('.vous-etes-main a:contains("Professionnels")').attr('href', '/site/fr/web/guest/professionnels');
+$('.vous-etes-main a:contains("Administrations")').attr('href', '/site/fr/web/guest/administrations');
+$('.vous-etes-main a:contains("Grandes entreprises")').attr('href', '/site/fr/web/guest/grandes-entreprises');
+$('.vous-etes-main a:contains("Promoteurs")').attr('href', '/site/fr/web/guest/lotisseur-ou-promoteur');
+$('.lange[style="left: 261px;"]').remove();
+$('.menu-footer').remove();
+$('td.powered-by strong').html(function(_, html) {
+        return html.replace("© 2012 SRM-CS", "© SRM Casablanca-Settat");
+    });
+$('td.powered-by + td img[src="/BasPage-portlet/images/nos-energies.png"]').remove();
+$('.txt-vous-etes2 a').remove();
+
+$('#navigation li:first').remove();
+
+
+$('#navigation').css('background', '#2a9bd6');
+$('#navigation ul li').css('background', 'url(/site/image/image_gallery?uuid=8761a77c-01d2-4570-96fd-4bbf03902b6c&groupId=3285894&t=1727257562987) no-repeat right');
+
+$(".lien-sociaux a").eq(0).attr("href", "http://www.facebook.com/srmcasablancasettat");
+    $(".lien-sociaux a").eq(1).attr("href", "https://www.linkedin.com/company/srm-casablanca-settat");
+    $(".lien-sociaux a").eq(2).attr("href", "http://x.com/cssrm23093");
+    $(".lien-sociaux a").eq(3).attr("href", "https://www.instagram.com/srm.casablancasettat");
+    $(".lien-sociaux a").eq(4).attr("href", "http://www.youtube.com/@srmcasablancasettat");
+
+    $(".application-mobile a").eq(0).attr("href", "#");
+    $(".application-mobile a").eq(1).attr("href", "#");
+
+$('.Suivez-nous-agence-portlet').css('display', 'none');
+$(".msgerror").html(function(i, oldHtml) {
+        return oldHtml.replace("contact@lydec.co.ma", "contact@srm-cs.ma");
+    });
+
+$('.user-connect').css('top', '211px');
+$('.aui-w870').css('background-image', 'url(/site/image/image_gallery?img_id=3304918&t=1727856787056)');
+
+});
+/*]]>*/</script> </div> </div> </div> </div> <div id="p_p_id_Impayes_WAR_Impayesportlet_" class="portlet-boundary portlet-boundary_Impayes_WAR_Impayesportlet_  portlet-static portlet-static-end  "> <a id="p_Impayes_WAR_Impayesportlet"></a> <div class="portlet-borderless-container" style=""> <div class="portlet-body"> <div> <link type="text/css" href="/Impayes-portlet/css/styles/styles.css" rel="stylesheet"> <link type="text/css" href="/Impayes-portlet/css/styles/style.css" rel="stylesheet"> <style> <!--
+.lien11 {color: #83AC35;font-size: 12px;}
+.lien11 a {color: #83AC35;font-size: 12px;text-decoration: none;}
+.lien11 a:hover {text-decoration: none;}
+--> </style> <script type="text/javascript">/*<![CDATA[*/ 
+var test=0;
+function initDocument(){
+
+  
+}
+var incremProgress = 1000;
+var progressWith=0;
+var urlRedirect = "";
+
+function startProgress()
+{
+	progressWith = progressWith + incremProgress;
+	if( progressWith  < 500)
+       {     
+		document.getElementById("Progress").style.width = progressWith + "px";
+
+}
+	else
+	{   document.getElementById("patienter").style.visibility = 'hidden';  
+         
+        document.getElementById("load").style.visibility = 'hidden'; 
+        // document.getElementById("atext").style.visibility = 'visible';  
+        
+        // document.getElementById("erreur").style.visibility = 'visible';  
+        alert("Nous nous excusons,le service n'est pas disponible pour le moment, veuillez réessayer utlérieurement");
+        
+
+
+
+
+        
+        
+
+	}
+}
+
+function executer(){
+    
+   
+    setTimeout("document.getElementById('formulaire').submit()",10);
+    setInterval("startProgress()",120000);    
+    document.getElementById("patienter").style.visibility = 'visible';  
+    document.getElementById("load").style.visibility = 'visible'; 
+    document.getElementById("confirmer").style.visibility = 'hidden';  
+    document.getElementById("annuler").style.visibility = 'hidden'; 
+    document.getElementById("retour").style.visibility = 'hidden';  
+    test=1; 
+for (i=0;i< 1;i++)
+{
+parent.document.getElementById("contrat" + i ).href = 'javascript:void(0)'; 
+parent.document.getElementById("det" + i ).href = 'javascript:void(0)'; 
+parent.document.getElementById("impcontrat" + i ).href = 'javascript:void(0)'; 
+parent.document.getElementById("histconso" + i ).href = 'javascript:void(0)'; 
+
+} 
+ 
+}
+
+</script>
+<script language="javascript" type="text/javascript">
+
+function surligner(obj){
+	obj.style.backgroundColor= "#fff";
+}
+function desurligner(obj){
+	obj.style.backgroundColor= "";
+}
+/*]]>*/</script> <div class="introduction"> <h1>Mes Impayés&nbsp;</h1> </div> <form name="telechargerForm" id="formulaire" method="post" action="https://client.lydec.ma/site/fr/web/lydec/paiement?p_auth=UG5mkvhl&amp;p_p_id=Impayes_WAR_Impayesportlet&amp;p_p_lifecycle=1&amp;p_p_state=normal&amp;p_p_mode=view&amp;p_p_col_id=column-3&amp;p_p_col_pos=1&amp;p_p_col_count=2&amp;_Impayes_WAR_Impayesportlet__spage=%2fportlet_action%2fimpayes_portlet%2faction&amp;_Impayes_WAR_Impayesportlet__sorig=%2fportlet_action%2fimpayes_portlet%2faction"> <input type="hidden" name="do" value="11" style=""> <textarea name="generateDO" style="display: none;" cols="" rows="">&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;Articles xmlns:fo="http://www.w3.org/1999/XSL/Format"&gt;&lt;Client CF_R_OIIDClient="700598645" CF_R_OINomClient="ETTAHERY MALIKA               " CF_R_OIEmail="achrafrd02@gmail.com" CF_R_OIMontantTotalTbr="0.19" CF_R_OIMontantTotal="76.50" CF_R_OIMontantTotalDbt="76.69" CF_R_OIMontantTotalTva="0.00" CF_R_OINReference="10999609" OfferURL="https://client.lydec.ma/site/fr/web/guest"/&gt;&lt;StoreId&gt;400050&lt;/StoreId&gt;&lt;Article UniqueID="1626058914" Name="0" Price="76.50" Type="tangible" CF_R_OIPFacturation="202608" CF_R_OIType="Consommation" CF_R_OINumPolice="DA49788" CF_R_OIMontantTbr="0.19" CF_R_OIMontant="76.69" CF_R_OIClassID="Eau"/&gt;&lt;/Articles&gt;</textarea> <textarea name="checksum" style="display: none;" cols="" rows="">3fc64fb1df4aeb6b26fe8e92edb068ef</textarea> <input type="hidden" value=" 10999609" name="n_offre" style=""> <div> <img src="/Impayes-portlet/html/image/confirmation.png"> </div> <br> <table width="95%" border="0"> <tbody><tr> <td width="100%"><table width="40%" border="0" cellpadding="1" cellspacing="0" style=" border-bottom:#ccc solid 1px; border-left:#ccc solid 1px; border-right:#ccc solid 1px; border-top:#ccc solid 1px;margin-top:5px;"> <tbody><tr> <td width="34%" class="tdbas" align="left">Nom du client </td> <td width="9%" class="tdbas">&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</td> <td width="57%" class="text">ETTAHERY MALIKA               </td> </tr> <tr> <td class="tdbas" align="left">Email</td> <td class="tdbas">&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</td> <td class="text">achrafrd02@gmail.com</td> </tr> </tbody></table> <br> <table width="100%" border="0" cellpadding="1" cellspacing="0" style="margin-top:5px;" id="thetable"> <thead> <tr class="tdtop"> <td width="20%" align="center">N° Facture</td> <td width="10%" align="center">N° échéance</td> <td width="10%" align="center">Fluide </td> <td width="10%" align="center">Produit</td> <td width="10%" align="center">Type <br> Facture </td> <td width="10%" align="center">N° Contrat </td> <td width="10%" align="center">Sans Timbres </td> <td width="10%" align="center">Montant timbre</td> <td width="10%" align="center">Montant TTC </td> </tr> </thead> <tbody><tr class="tdalt1" onmousemove="surligner(this);" onmouseout="desurligner(this);"> <td class="text6" align="center">1626058914
+            <input name="factures_sel" type="hidden" value="1626058914-0" style=""></td> <td align="center">0</td> <td align="center">Eau</td> <td align="center">202608</td> <td align="center">Consommation</td> <td align="center">DA49788</td> <td align="center">76.50</td> <td align="center">0.19</td> <td class="text6" align="center">76.69</td> </tr> </tbody></table> <table width="40%" align="right" border="0" cellpadding="1" cellspacing="0" style=" border-bottom:#ccc solid 1px; border-left:#ccc solid 1px; border-right:#ccc solid 1px; border-top:#ccc solid 1px;margin-top:5px;"> <tbody><tr> <td width="63%" class="tdbas" align="right">Total TVA : </td> <td width="37%" class="text1" align="right">0.00</td> </tr> <tr> <td class="tdbas" align="right">Total TTC (avec timbre)  : </td> <td class="text2" align="right">76.69</td> </tr> <tr> <td class="tdbas" align="right">Total à régler  : </td> <td class="text3" align="right">76.50</td> </tr> </tbody></table> </td></tr></tbody></table> <table width="95%" border="0" height="334"> <tbody><tr> <td align="center"><img id="confirmer" src="/Impayes-portlet/html/image/confirmer.png" border="0" onclick="javascript:executer();" style="cursor:pointer;" title="Cliquez ici pour confirmer le règlement des factures."> <a href="https://client.lydec.ma/site/fr/web/lydec/paiement?p_p_id=Impayes_WAR_Impayesportlet&amp;p_p_lifecycle=0&amp;p_p_state=normal&amp;p_p_mode=view&amp;p_p_col_id=column-3&amp;p_p_col_pos=1&amp;p_p_col_count=2&amp;_Impayes_WAR_Impayesportlet__spage=%2fportlet_action%2fimpayes_portlet%2faction%3fdo%3d3%26annul%3d1%26doa%3d10999609&amp;_Impayes_WAR_Impayesportlet_do=3&amp;_Impayes_WAR_Impayesportlet_annul=1&amp;_Impayes_WAR_Impayesportlet_doa=10999609"><img id="annuler" src="/Impayes-portlet/html/image/annuler.png" border="0" style="cursor:pointer;" title="Cliquez ici pour retourner aux impayés."></a></td> </tr> <tr> <td align="center"> <span class="lien11"> <a href="https://client.lydec.ma/site/fr/web/lydec/paiement?p_p_id=Impayes_WAR_Impayesportlet&amp;p_p_lifecycle=0&amp;p_p_state=normal&amp;p_p_mode=view&amp;p_p_col_id=column-3&amp;p_p_col_pos=1&amp;p_p_col_count=2&amp;_Impayes_WAR_Impayesportlet__spage=%2fportlet_action%2fimpayes_portlet%2faction%3fdo%3d3%26doa%3d10999609&amp;_Impayes_WAR_Impayesportlet_do=3&amp;_Impayes_WAR_Impayesportlet_doa=10999609" title="Cliquez ici pour rajouter d'autres factures.">Voulez vous régler d'autres factures ?</a></span></td> </tr> <tr> <td align="center" height="98"><img id="patienter" src="/Impayes-portlet/html/image/patienter.png" border="0" style="visibility:hidden"><br> <img id="load" src="/Impayes-portlet/html/image/loading.gif" border="0" style="visibility:hidden"></td> </tr> <tr> <td align="center" width="100%" style="visibility:hidden" id="atext"><img id="erreur" src="/Impayes-portlet/html/image/err.jpg" border="0" style="visibility:hidden"> <br> <br></td> </tr> </tbody></table> </form> </div> <br> </div> </div> </div> </div> </div> </div> </div> <form action="" id="hrefFm" method="post" name="hrefFm"></form> </div> <footer id="footer" role="contentinfo"> <div id="p_p_id_BasPage_WAR_BasPageportlet_INSTANCE_H1ps_" class="portlet-boundary portlet-boundary_BasPage_WAR_BasPageportlet_  portlet-static portlet-static-end BasPage-portlet "> <a id="p_BasPage_WAR_BasPageportlet_INSTANCE_H1ps"></a> <div class="portlet-borderless-container" style=""> <div class="portlet-body"> <style type="text/css" media="screen"> .menu-footer {color: #677c91;font-size: 10px;font-weight: bold;}
+	.menu-footer a{color: #677c91;  text-decoration: none;}
+	.menu-footer a:hover{ text-decoration: none;color: #ABB6C2;}
+	
+	.powered-by a{ color: #677c91; text-decoration: none;}
+	.powered-by a:hover{ color: #677c91; text-decoration: none;}
+	
+	
+</style> <table width="100%"> <tbody><tr> <td class="powered-by"> <strong>© 2012 SRM Casablanca-Settat  - <a href="http://www.srm-cs.ma">www.srm-cs.ma</a> <br> Siège social : 48, Boulevard Mohamed Diouri - Casablanca
+			</strong> </td>  <td align="right"> </td> </tr> </tbody></table> <script type="text/javascript">/*<![CDATA[*/
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33282422-1']);
+  _gaq.push(['_setDomainName', 'lydec.ma']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+/*]]>*/</script> </div> </div> </div> </footer> </div>  <script type="text/javascript">/*<![CDATA[*/
+// <![CDATA[
+
+	Liferay.Util.addInputFocus();
+
+	
+
+		
+
+		
+	
+
+// ]]>
+/*]]>*/</script> <script type="text/javascript">/*<![CDATA[*/
+// <![CDATA[
+
+			Liferay.Portlet.onLoad(
+				{
+					canEditTitle: false,
+					columnPos: 0,
+					isStatic: 'end',
+					namespacedId: 'p_p_id_103_',
+					portletId: '103',
+					refreshURL: '\x2fsite\x2ffr\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d10469\x26p_p_id\x3d103\x26p_p_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3d\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d0\x26p_p_isolated\x3d1\x26currentURL\x3d\x252fsite\x252ffr\x252fweb\x252flydec\x252fpaiement\x253fp_auth\x253dUG5mkvhl\x2526p_p_id\x253dImpayes_WAR_Impayesportlet\x2526p_p_lifecycle\x253d1\x2526p_p_state\x253dnormal\x2526p_p_mode\x253dview\x2526p_p_col_id\x253dcolumn-3\x2526p_p_col_pos\x253d1\x2526p_p_col_count\x253d2\x2526_Impayes_WAR_Impayesportlet__spage\x253d\x25252fportlet_action\x25252fimpayes_portlet\x25252faction'
+				}
+			);
+		
+			Liferay.Portlet.onLoad(
+				{
+					canEditTitle: false,
+					columnPos: 0,
+					isStatic: 'end',
+					namespacedId: 'p_p_id_Suiveznousagence_WAR_Suiveznousagenceportlet_INSTANCE_9FKy_',
+					portletId: 'Suiveznousagence_WAR_Suiveznousagenceportlet_INSTANCE_9FKy',
+					refreshURL: '\x2fsite\x2ffr\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d10469\x26p_p_id\x3dSuiveznousagence_WAR_Suiveznousagenceportlet_INSTANCE_9FKy\x26p_p_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3d\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d0\x26p_p_isolated\x3d1\x26currentURL\x3d\x252fsite\x252ffr\x252fweb\x252flydec\x252fpaiement\x253fp_auth\x253dUG5mkvhl\x2526p_p_id\x253dImpayes_WAR_Impayesportlet\x2526p_p_lifecycle\x253d1\x2526p_p_state\x253dnormal\x2526p_p_mode\x253dview\x2526p_p_col_id\x253dcolumn-3\x2526p_p_col_pos\x253d1\x2526p_p_col_count\x253d2\x2526_Impayes_WAR_Impayesportlet__spage\x253d\x25252fportlet_action\x25252fimpayes_portlet\x25252faction'
+				}
+			);
+		
+			Liferay.Portlet.onLoad(
+				{
+					canEditTitle: false,
+					columnPos: 0,
+					isStatic: 'end',
+					namespacedId: 'p_p_id_56_INSTANCE_oAL9_',
+					portletId: '56_INSTANCE_oAL9',
+					refreshURL: '\x2fsite\x2ffr\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d10469\x26p_p_id\x3d56_INSTANCE_oAL9\x26p_p_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3dcolumn-3\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d2\x26p_p_isolated\x3d1\x26currentURL\x3d\x252fsite\x252ffr\x252fweb\x252flydec\x252fpaiement\x253fp_auth\x253dUG5mkvhl\x2526p_p_id\x253dImpayes_WAR_Impayesportlet\x2526p_p_lifecycle\x253d1\x2526p_p_state\x253dnormal\x2526p_p_mode\x253dview\x2526p_p_col_id\x253dcolumn-3\x2526p_p_col_pos\x253d1\x2526p_p_col_count\x253d2\x2526_Impayes_WAR_Impayesportlet__spage\x253d\x25252fportlet_action\x25252fimpayes_portlet\x25252faction'
+				}
+			);
+		
+			Liferay.Portlet.onLoad(
+				{
+					canEditTitle: false,
+					columnPos: 0,
+					isStatic: 'end',
+					namespacedId: 'p_p_id_71_INSTANCE_qc5T_',
+					portletId: '71_INSTANCE_qc5T',
+					refreshURL: '\x2fsite\x2ffr\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d10469\x26p_p_id\x3d71_INSTANCE_qc5T\x26p_p_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3dcolumn-2\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d1\x26p_p_isolated\x3d1\x26currentURL\x3d\x252fsite\x252ffr\x252fweb\x252flydec\x252fpaiement\x253fp_auth\x253dUG5mkvhl\x2526p_p_id\x253dImpayes_WAR_Impayesportlet\x2526p_p_lifecycle\x253d1\x2526p_p_state\x253dnormal\x2526p_p_mode\x253dview\x2526p_p_col_id\x253dcolumn-3\x2526p_p_col_pos\x253d1\x2526p_p_col_count\x253d2\x2526_Impayes_WAR_Impayesportlet__spage\x253d\x25252fportlet_action\x25252fimpayes_portlet\x25252faction'
+				}
+			);
+		
+			Liferay.Portlet.onLoad(
+				{
+					canEditTitle: false,
+					columnPos: 1,
+					isStatic: 'end',
+					namespacedId: 'p_p_id_Impayes_WAR_Impayesportlet_',
+					portletId: 'Impayes_WAR_Impayesportlet',
+					refreshURL: '\x2fsite\x2ffr\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d10469\x26p_p_id\x3dImpayes_WAR_Impayesportlet\x26p_p_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3dcolumn-3\x26p_p_col_pos\x3d1\x26p_p_col_count\x3d2\x26p_p_isolated\x3d1\x26currentURL\x3d\x252fsite\x252ffr\x252fweb\x252flydec\x252fpaiement\x253fp_auth\x253dUG5mkvhl\x2526p_p_id\x253dImpayes_WAR_Impayesportlet\x2526p_p_lifecycle\x253d1\x2526p_p_state\x253dnormal\x2526p_p_mode\x253dview\x2526p_p_col_id\x253dcolumn-3\x2526p_p_col_pos\x253d1\x2526p_p_col_count\x253d2\x2526_Impayes_WAR_Impayesportlet__spage\x253d\x25252fportlet_action\x25252fimpayes_portlet\x25252faction\x26_Impayes_WAR_Impayesportlet__spage\x3d\x252fportlet_action\x252fimpayes_portlet\x252faction\x26condition\x3don\x26valide_cb\x3d1626058914-0-76\x2e69-0\x26do\x3d9\x26fp\x3d'
+				}
+			);
+		
+			Liferay.Portlet.onLoad(
+				{
+					canEditTitle: false,
+					columnPos: 0,
+					isStatic: 'end',
+					namespacedId: 'p_p_id_CRC_WAR_CRCportlet_INSTANCE_pS5Y_',
+					portletId: 'CRC_WAR_CRCportlet_INSTANCE_pS5Y',
+					refreshURL: '\x2fsite\x2ffr\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d10469\x26p_p_id\x3dCRC_WAR_CRCportlet_INSTANCE_pS5Y\x26p_p_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3d\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d0\x26p_p_isolated\x3d1\x26currentURL\x3d\x252fsite\x252ffr\x252fweb\x252flydec\x252fpaiement\x253fp_auth\x253dUG5mkvhl\x2526p_p_id\x253dImpayes_WAR_Impayesportlet\x2526p_p_lifecycle\x253d1\x2526p_p_state\x253dnormal\x2526p_p_mode\x253dview\x2526p_p_col_id\x253dcolumn-3\x2526p_p_col_pos\x253d1\x2526p_p_col_count\x253d2\x2526_Impayes_WAR_Impayesportlet__spage\x253d\x25252fportlet_action\x25252fimpayes_portlet\x25252faction'
+				}
+			);
+		
+	function ctem_3_search() {
+		var keywords = document.ctem_3_fm._3_keywords.value;
+
+		keywords = keywords.replace(/^\s+|\s+$/, '');
+
+		if (keywords != '') {
+			document.ctem_3_fm.submit();
+		}
+	}
+
+			Liferay.Portlet.onLoad(
+				{
+					canEditTitle: false,
+					columnPos: 0,
+					isStatic: 'end',
+					namespacedId: 'p_p_id_UserDeConnect_WAR_UserDeConnectportlet_INSTANCE_QB5c_',
+					portletId: 'UserDeConnect_WAR_UserDeConnectportlet_INSTANCE_QB5c',
+					refreshURL: '\x2fsite\x2ffr\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d10469\x26p_p_id\x3dUserDeConnect_WAR_UserDeConnectportlet_INSTANCE_QB5c\x26p_p_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3d\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d0\x26p_p_isolated\x3d1\x26currentURL\x3d\x252fsite\x252ffr\x252fweb\x252flydec\x252fpaiement\x253fp_auth\x253dUG5mkvhl\x2526p_p_id\x253dImpayes_WAR_Impayesportlet\x2526p_p_lifecycle\x253d1\x2526p_p_state\x253dnormal\x2526p_p_mode\x253dview\x2526p_p_col_id\x253dcolumn-3\x2526p_p_col_pos\x253d1\x2526p_p_col_count\x253d2\x2526_Impayes_WAR_Impayesportlet__spage\x253d\x25252fportlet_action\x25252fimpayes_portlet\x25252faction'
+				}
+			);
+		
+			Liferay.Portlet.onLoad(
+				{
+					canEditTitle: false,
+					columnPos: 0,
+					isStatic: 'end',
+					namespacedId: 'p_p_id_BasPage_WAR_BasPageportlet_INSTANCE_H1ps_',
+					portletId: 'BasPage_WAR_BasPageportlet_INSTANCE_H1ps',
+					refreshURL: '\x2fsite\x2ffr\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d10469\x26p_p_id\x3dBasPage_WAR_BasPageportlet_INSTANCE_H1ps\x26p_p_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3d\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d0\x26p_p_isolated\x3d1\x26currentURL\x3d\x252fsite\x252ffr\x252fweb\x252flydec\x252fpaiement\x253fp_auth\x253dUG5mkvhl\x2526p_p_id\x253dImpayes_WAR_Impayesportlet\x2526p_p_lifecycle\x253d1\x2526p_p_state\x253dnormal\x2526p_p_mode\x253dview\x2526p_p_col_id\x253dcolumn-3\x2526p_p_col_pos\x253d1\x2526p_p_col_count\x253d2\x2526_Impayes_WAR_Impayesportlet__spage\x253d\x25252fportlet_action\x25252fimpayes_portlet\x25252faction'
+				}
+			);
+		AUI().use('aui-base', 'liferay-menu', 'liferay-notice', 'liferay-poller', 'liferay-session', function(A) {(function() {
+	Liferay.Util.addInputType();
+
+	Liferay.Portlet.ready(
+		function(portletId, node) {
+			Liferay.Util.addInputType(node);
+		}
+	);
+})();(function() {
+	new Liferay.Menu();
+
+	Liferay.Notice.prototype.setClosing();
+
+	
+		Liferay._editControlsState = 'visible';
+
+		if (Liferay.Util) {
+			Liferay.Util.toggleControls();
+		}
+
+		Liferay.Poller.init(
+			{
+				encryptedUserId: 'O466wHmuahw=',
+				supportsComet: false
+			}
+		);
+	
+})();(function() {
+				Liferay.Session.init(
+					{
+						autoExtend: false,
+						timeout: 30,
+						timeoutWarning: 1,
+						redirectOnExpire: true
+					}
+				);
+			})();});
+// ]]>
+/*]]>*/</script> <script src="/AgenceEnLigne-theme/js/main.js?browserId=other&amp;minifierType=js&amp;languageId=fr_FR&amp;b=6011&amp;t=1727880511000" type="text/javascript"></script> <script type="text/javascript">/*<![CDATA[*/
+		// <![CDATA[
+			
+			
+			
+		// ]]>
+	/*]]>*/</script>  <div></div><nav class="site-breadcrumbs aui-helper-hidden lfr-hudcrumbs" id="aui_3_2_0_1115" style="left: 180px; top: 0px; width: 920px;"> <h1> <span>Chapelure</span> </h1> <ul class="breadcrumbs breadcrumbs-style-1 lfr-component"> <li class="first"><span><a href="https://client.lydec.ma/site/fr">Accueil</a></span></li><li><span><a href="/site/fr/web/lydec">Agence en ligne</a></span></li><li><span><a href="/site/fr/web/lydec/services">Services</a></span></li><li class="last"><span><a href="/site/fr/web/lydec/paiement">Paiement de mes factures</a></span></li> </ul> </nav></body></html>

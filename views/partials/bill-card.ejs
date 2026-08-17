@@ -1,0 +1,84 @@
+<div class="bill-card bill-card--<%= type %>" data-provider="<%= type %>">
+  <div class="bill-card__header">
+    <div class="bill-card__title">
+      <span><%= emoji %></span>
+      <span><%= label %></span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <span class="provider-badge" style="font-size: 0.75rem; color: var(--text-secondary);"><%= provider %></span>
+      <button class="btn btn--outline" onclick="checkProvider('<%= provider %>')" title="Re-check" style="padding: 0.2rem 0.5rem; font-size: 0.75rem; border-radius: 6px;">🔄</button>
+    </div>
+  </div>
+
+  <!-- Inline Card Configuration -->
+  <div class="card-inline-config" style="margin: 0.75rem 0; padding: 0.5rem; background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 8px;">
+    <% if (type === 'internet') { %>
+      <div style="display: flex; gap: 0.4rem; align-items: center;">
+        <input type="text" id="config-inwiPhone" placeholder="Ex: 0529875242" value="<%= typeof settings !== 'undefined' && settings.inwiPhone ? settings.inwiPhone : '' %>" style="flex: 1; padding: 0.35rem 0.5rem; border-radius: 6px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-glass); color: var(--text-primary); font-size: 0.8rem;" onchange="saveInlineSetting('inwiPhone', this.value)">
+        <button class="btn btn--primary" onclick="saveAndCheck('<%= provider %>', 'inwiPhone')" style="padding: 0.35rem 0.6rem; font-size: 0.75rem; white-space: nowrap;">🔍 Check</button>
+      </div>
+    <% } else { %>
+      <div style="display: flex; gap: 0.4rem; align-items: center; flex-wrap: wrap;">
+        <input type="text" id="config-srmUsername" placeholder="Email / Contract N°" value="<%= typeof settings !== 'undefined' && settings.srmUsername ? settings.srmUsername : 'ly123646' %>" style="flex: 1; min-width: 120px; padding: 0.35rem 0.5rem; border-radius: 6px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-glass); color: var(--text-primary); font-size: 0.8rem;" onchange="saveInlineSetting('srmUsername', this.value)">
+        <input type="password" id="config-srmPassword" placeholder="Password" value="<%= typeof settings !== 'undefined' && settings.srmPassword ? settings.srmPassword : '2019tpli' %>" style="flex: 1; min-width: 100px; padding: 0.35rem 0.5rem; border-radius: 6px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-glass); color: var(--text-primary); font-size: 0.8rem;" onchange="saveInlineSetting('srmPassword', this.value)">
+        <button class="btn btn--primary" onclick="saveAndCheck('<%= provider %>', ['srmUsername', 'srmPassword'])" style="padding: 0.35rem 0.6rem; font-size: 0.75rem; white-space: nowrap;">🔍 Check</button>
+      </div>
+    <% } %>
+    
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 0.4rem; padding-top: 0.4rem; border-top: 1px dashed rgba(255,255,255,0.06); font-size: 0.75rem; color: var(--text-secondary);">
+      <span>⚡ Generate direct CMI link via Playwright</span>
+      <input type="checkbox" id="toggle-cmi-<%= provider %>" <%= typeof settings !== 'undefined' && settings['autoCmi_' + provider] === 'true' ? 'checked' : '' %> onchange="saveInlineSetting('autoCmi_<%= provider %>', this.checked ? 'true' : 'false')" style="accent-color: var(--color-water); cursor: pointer; width: 16px; height: 16px;">
+    </div>
+  </div>
+
+  <% if (bill) { %>
+    <div class="bill-card__amount">
+      <%= bill.amount %> <span style="font-size: 1rem; color: var(--text-secondary)">MAD</span>
+    </div>
+
+    <div class="bill-card__details">
+      <div class="detail-item">
+        <span class="detail-label">Period</span>
+        <span><%= bill.billing_period %></span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Due Date</span>
+        <span><%= bill.due_date || 'N/A' %></span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Status</span>
+        <span class="status-badge status-badge--<%= bill.status === 'paid' ? 'paid' : (bill.status === 'overdue' ? 'overdue' : 'unpaid') %>">
+          <%= bill.status === 'paid' ? 'Paid' : 'Unpaid' %>
+        </span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Consumption</span>
+        <span><%= bill.consumption || 'N/A' %></span>
+      </div>
+    </div>
+
+    <div class="bill-card__actions" style="flex-wrap: wrap;">
+      <% if (bill.status !== 'paid') { %>
+        <button class="btn btn--primary" id="pay-btn-<%= type %>" onclick="payBill('<%= bill.id %>', '<%= bill.payment_url || '' %>', '<%= provider %>', '<%= type %>')"><%= provider.toLowerCase() === 'inwi' ? 'Link to inwi payment' : 'Pay' %></button>
+        <a id="cmi-link-btn-<%= type %>" href="#" target="_blank" class="btn" style="display: none; background: #06b6d4; border-color: #06b6d4; color: white;">CMI Payment ⚡</a>
+        <button class="btn btn--success" onclick="confirmMarkPaid('<%= bill.id %>')">Mark Paid</button>
+      <% } else { %>
+        <button class="btn btn--outline" disabled style="opacity: 0.5; cursor: not-allowed;">Already Paid</button>
+      <% } %>
+    </div>
+  <% } else { %>
+    <div class="empty-state" style="padding: 0.75rem 0; margin: auto;">
+      <div class="empty-state__icon" style="font-size: 1.5rem; margin-bottom: 0.25rem;">✨</div>
+      <p style="font-size: 0.8rem; color: var(--text-secondary);">Enter the ID above & click Check</p>
+    </div>
+  <% } %>
+
+  <!-- SSE Live Stream Logs Container -->
+  <div id="cmi-log-box-<%= type %>" class="cmi-log-box" style="display:none; margin-top: 0.75rem; padding: 0.6rem; background: #08090e; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-family: monospace; font-size: 0.75rem; color: #a1a1aa; max-height: 140px; overflow-y: auto;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.3rem; margin-bottom: 0.4rem;">
+      <span style="color: var(--color-water); font-weight: bold;">📡 Live CMI Stream</span>
+      <button onclick="document.getElementById('cmi-log-box-<%= type %>').style.display='none'" style="background:none; border:none; color:#71717a; cursor:pointer; font-weight:bold;">✕</button>
+    </div>
+    <div id="cmi-log-content-<%= type %>"></div>
+  </div>
+</div>
