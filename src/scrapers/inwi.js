@@ -193,13 +193,21 @@ class InwiScraper extends BaseScraper {
 
             // ===== STEP 3: Click Confirmer =====
             onLog(`👆 Clicking Confirm...`);
-            // Click the first "Confirmer" button (B2C tab) - NOT the second one (B2B)
-            const confirmerBtns = await page.$$('button:has-text("Confirmer")');
-            if (confirmerBtns.length > 0) {
-                await confirmerBtns[0].click();
-            } else {
-                await page.keyboard.press('Enter');
-            }
+            // Click the "Confirmer" button using evaluate to bypass detached DOM or overlay issues
+            await page.evaluate(() => {
+                const buttons = Array.from(document.querySelectorAll('button'));
+                const confirmBtn = buttons.find(b => b.textContent.trim() === 'Confirmer');
+                if (confirmBtn) {
+                    confirmBtn.click();
+                } else {
+                    // Fallback to searching inside shadow DOM or just returning
+                    const anyConfirm = buttons.find(b => b.textContent.includes('Confirmer'));
+                    if (anyConfirm) anyConfirm.click();
+                }
+            }).catch(() => {});
+            
+            // Also press Enter as a fallback
+            await page.keyboard.press('Enter').catch(() => {});
 
             // Wait for Step 2 page to load (invoices list)
             onLog(`⏳ Waiting for invoices to load...`);
