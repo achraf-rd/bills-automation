@@ -28,7 +28,13 @@ const startScheduler = () => {
                 if ((summary.unpaid && summary.unpaid.length > 0) || (summary.errors && summary.errors.length > 0)) {
                     const recipient = process.env.EMAIL_RECIPIENT || db.getSetting('recipientEmail') || db.getSetting('senderEmail');
                     if (recipient) {
-                        await emailService.sendBillSummary(summary.unpaid, summary.errors, recipient);
+                        await emailService.sendBillSummary(summary.unpaid, summary.errors, recipient, true);
+                    }
+                    
+                    const reportRecipient = db.getSetting('reportRecipientEmail');
+                    if (reportRecipient) {
+                        console.log(`[Cron] Sending secondary report to ${reportRecipient}`);
+                        await emailService.sendBillSummary(summary.unpaid, summary.errors, reportRecipient, false);
                     }
                 }
             }

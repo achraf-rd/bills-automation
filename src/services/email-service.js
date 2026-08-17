@@ -38,7 +38,7 @@ const getProviderEmoji = (provider) => {
     return '📄';
 };
 
-const sendBillSummary = async (bills, errors = [], recipientEmail) => {
+const sendBillSummary = async (bills, errors = [], recipientEmail, includePayButton = true) => {
     if ((!bills || bills.length === 0) && (!errors || errors.length === 0)) {
         console.log('No bills or errors to send.');
         return { success: true, message: 'No bills or errors to send' };
@@ -101,9 +101,11 @@ const sendBillSummary = async (bills, errors = [], recipientEmail) => {
                             </tr>` : ''}
                         </table>
                         
+                        ${includePayButton ? `
                         <div style="text-align: center;">
                             <a href="${payLink}" style="display: block; background-color: #0f172a; color: #ffffff; padding: 14px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; text-align: center; transition: all 0.2s;">Payer Maintenant ⚡</a>
                         </div>
+                        ` : ''}
                     </div>
                 </div>
         `;

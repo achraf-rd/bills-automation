@@ -99,8 +99,12 @@
             </div>
           </div>
           <div class="form-group">
-            <label>Email Destinataire</label>
+            <label>Email Destinataire (Principal)</label>
             <input type="email" name="recipientEmail" class="form-control" value="<%= typeof settings !== 'undefined' && settings.recipientEmail ? settings.recipientEmail : '' %>">
+          </div>
+          <div class="form-group">
+            <label>Email Rapporteur (Secondaire - Sans bouton de paiement)</label>
+            <input type="email" name="reportRecipientEmail" class="form-control" value="<%= typeof settings !== 'undefined' && settings.reportRecipientEmail ? settings.reportRecipientEmail : '' %>">
           </div>
         </div>
       </section>
