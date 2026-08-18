@@ -118,20 +118,7 @@ const getBillSummary = async () => {
     });
 
     // Get latest errors
-    const errors = [];
-    const logs = db.prepare(`
-        SELECT provider, success, error_message, created_at 
-        FROM scrape_logs 
-        WHERE id IN (
-            SELECT MAX(id) FROM scrape_logs GROUP BY provider
-        )
-    `).all();
-    
-    logs.forEach(log => {
-        if (log.success === 0) {
-            errors.push(log);
-        }
-    });
+    const errors = db.getRecentErrors().filter(log => log.success === 0);
 
     // Get history (last 20 bills)
     const history = db.getBills({ limit: 20 });

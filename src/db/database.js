@@ -147,6 +147,16 @@ const getLastScrapeTime = () => {
     return row ? row.last_scrape : null;
 };
 
+const getRecentErrors = () => {
+    return db.prepare(`
+        SELECT provider, success, error_message, created_at 
+        FROM scrape_logs 
+        WHERE id IN (
+            SELECT MAX(id) FROM scrape_logs GROUP BY provider
+        )
+    `).all();
+};
+
 const getSetting = (key) => {
     const row = db.prepare('SELECT value FROM settings WHERE key = ?').get(key);
     return row ? row.value : null;
@@ -184,6 +194,7 @@ module.exports = {
     getUnpaidBills,
     logScrape,
     getLastScrapeTime,
+    getRecentErrors,
     getSetting,
     setSetting,
     getAllSettings,
