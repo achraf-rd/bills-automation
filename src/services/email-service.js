@@ -52,7 +52,7 @@ const sendBillSummary = async (bills, errors = [], recipientEmail, includePayBut
     const month = date.toLocaleString('en-US', { month: 'long' });
     const year = date.getFullYear();
 
-    const appUrl = process.env.APP_URL || 'http://localhost:3000';
+    const appUrl = process.env.APP_URL || 'http://dashboard-fgsrhf-0a35a3-51-170-130-16.sslip.io';
 
     let htmlBody = `
     <!DOCTYPE html>
