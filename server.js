@@ -162,7 +162,16 @@ app.post('/api/send-email', async (req, res) => {
             return res.status(400).json({ success: false, error: 'No recipient email configured in settings.' });
         }
         
-        const result = await emailService.sendBillSummary(summary.unpaid, summary.errors, recipient);
+        // Send main email with pay buttons
+        const result = await emailService.sendBillSummary(summary.unpaid, summary.errors, recipient, true);
+        
+        // Send secondary report without pay buttons if configured
+        const reportRecipient = await db.getSetting('reportRecipientEmail');
+        if (reportRecipient) {
+            console.log(`Sending secondary report to ${reportRecipient}`);
+            await emailService.sendBillSummary(summary.unpaid, summary.errors, reportRecipient, false);
+        }
+        
         res.json(result);
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });
