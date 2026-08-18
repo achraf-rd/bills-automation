@@ -78,11 +78,17 @@ async function checkProvider(provider) {
 }
 
 async function sendEmail() {
-  showLoading('Sending email...');
+  showLoading('Checking latest bills...');
   try {
+    // 1. Scrape latest bills just like the scheduled operation
+    await apiCall('/api/check-now', { method: 'POST' });
+    
+    // 2. Send the email with the latest data
+    showLoading('Sending email...');
     await apiCall('/api/send-email', { method: 'POST' });
-    showToast('Email sent successfully', 'success');
-    hideLoading();
+    
+    showToast('Pipeline complete! Email sent.', 'success');
+    setTimeout(() => window.location.reload(), 1000);
   } catch (err) {
     hideLoading();
   }

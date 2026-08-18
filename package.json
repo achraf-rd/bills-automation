@@ -22,7 +22,6 @@
   "author": "Achraf Rachid",
   "license": "MIT",
   "dependencies": {
-    "better-sqlite3": "^13.0.3",
     "dotenv": "^16.6.1",
     "ejs": "^3.1.10",
     "express": "^4.22.2",
@@ -30,8 +29,5 @@
     "node-cron": "^3.0.3",
     "nodemailer": "^6.10.1",
     "playwright": "^1.62.1"
-  },
-  "allowScripts": {
-    "better-sqlite3@11.10.0": true
   }
 }
