@@ -42,8 +42,8 @@ scheduler.startScheduler();
 app.get('/', async (req, res) => {
     try {
         const summary = await billService.getBillSummary();
-        const lastCheck = db.getLastScrapeTime();
-        const settings = db.getAllSettings();
+        const lastCheck = await db.getLastScrapeTime();
+        const settings = await db.getAllSettings();
         
         res.render('dashboard', {
             bills: summary.bills,
@@ -64,13 +64,13 @@ app.get('/', async (req, res) => {
     }
 });
 
-app.get('/pay/:provider/:id', (req, res) => {
+app.get('/pay/:provider/:id', async (req, res) => {
     try {
         const provider = decodeURIComponent(req.params.provider);
         const billId = req.params.id;
         
         // Find the specific bill
-        const bills = db.getBills({ provider: provider });
+        const bills = await db.getBills({ provider: provider });
         const bill = bills.find(b => b.id == billId);
         
         if (!bill) {
@@ -83,14 +83,22 @@ app.get('/pay/:provider/:id', (req, res) => {
     }
 });
 
-app.get('/settings', (req, res) => {
-    const settings = db.getAllSettings();
-    res.render('settings', { settings });
+app.get('/settings', async (req, res) => {
+    try {
+        const settings = await db.getAllSettings();
+        res.render('settings', { settings });
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
 });
 
-app.post('/api/settings', (req, res) => {
-    db.saveAllSettings(req.body);
-    res.redirect('/settings');
+app.post('/api/settings', async (req, res) => {
+    try {
+        await db.saveAllSettings(req.body);
+        res.redirect('/settings');
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
 });
 
 app.post('/api/check-now', async (req, res) => {
@@ -146,7 +154,9 @@ app.post('/api/get-cmi-link/:provider', async (req, res) => {
 app.post('/api/send-email', async (req, res) => {
     try {
         const summary = await billService.getBillSummary();
-        const recipient = db.getSetting('recipientEmail') || db.getSetting('senderEmail');
+        const recipientEmail = await db.getSetting('recipientEmail');
+        const senderEmail = await db.getSetting('senderEmail');
+        const recipient = recipientEmail || senderEmail;
         
         if (!recipient) {
             return res.status(400).json({ success: false, error: 'No recipient email configured in settings.' });
@@ -168,23 +178,23 @@ app.post('/api/mark-paid/:id', async (req, res) => {
     }
 });
 
-app.get('/api/bills', (req, res) => {
+app.get('/api/bills', async (req, res) => {
     try {
         const filters = {
             provider: req.query.provider,
             status: req.query.status
         };
-        const bills = db.getBills(filters);
+        const bills = await db.getBills(filters);
         res.json(bills);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 });
 
-app.get('/api/history', (req, res) => {
+app.get('/api/history', async (req, res) => {
     try {
         const limit = parseInt(req.query.limit) || 50;
-        const history = db.getBills({ limit });
+        const history = await db.getBills({ limit });
         res.json(history);
     } catch (error) {
         res.status(500).json({ error: error.message });

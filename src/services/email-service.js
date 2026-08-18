@@ -2,11 +2,11 @@ const nodemailer = require('nodemailer');
 const { formatMAD } = require('../utils/helpers');
 const db = require('../db/database');
 
-const getTransporter = () => {
-    const host = db.getSetting('smtpHost');
-    const port = parseInt(db.getSetting('smtpPort')) || 587;
-    const user = db.getSetting('senderEmail');
-    const pass = db.getSetting('emailPassword');
+const getTransporter = async () => {
+    const host = await db.getSetting('smtpHost');
+    const port = parseInt(await db.getSetting('smtpPort')) || 587;
+    const user = await db.getSetting('senderEmail');
+    const pass = await db.getSetting('emailPassword');
 
     if (!host || !user || !pass) {
         throw new Error('Email configuration is missing in Settings. Please configure SMTP settings.');
@@ -44,7 +44,7 @@ const sendBillSummary = async (bills, errors = [], recipientEmail, includePayBut
         return { success: true, message: 'No bills or errors to send' };
     }
 
-    const transporter = getTransporter();
+    const transporter = await getTransporter();
     
     // Calculate total
     const total = bills.reduce((sum, bill) => sum + (bill.amount || 0), 0);
@@ -156,7 +156,7 @@ const sendBillSummary = async (bills, errors = [], recipientEmail, includePayBut
     `;
 
     try {
-        const sender = db.getSetting('senderEmail');
+        const sender = await db.getSetting('senderEmail');
         const info = await transporter.sendMail({
             from: `"Bills Automation" <${sender}>`,
             to: recipientEmail,
@@ -173,9 +173,10 @@ const sendBillSummary = async (bills, errors = [], recipientEmail, includePayBut
 
 const sendTestEmail = async () => {
     try {
-        const transporter = getTransporter();
-        const sender = db.getSetting('senderEmail');
-        const recipient = db.getSetting('recipientEmail') || sender;
+        const transporter = await getTransporter();
+        const sender = await db.getSetting('senderEmail');
+        const recipientSetting = await db.getSetting('recipientEmail');
+        const recipient = recipientSetting || sender;
 
         if (!recipient) {
             throw new Error('Recipient email is missing in Settings.');

@@ -16,7 +16,7 @@ const getScraperInstance = (providerName) => {
 
 const processScraperResult = async (result) => {
     // Log the scrape execution
-    db.logScrape({
+    await db.logScrape({
         provider: result.provider,
         success: result.success,
         error_message: result.error_message,
@@ -38,7 +38,7 @@ const processScraperResult = async (result) => {
                 console.error(`[Durable Process] Failed to generate CMI link for ${bill.provider}:`, err.message);
                 bill.payment_url_error = err.message; // Optional tracking
             }
-            db.insertBill(bill);
+            await db.insertBill(bill);
         }
     }
 };
@@ -89,7 +89,7 @@ const checkProvider = async (providerName) => {
 };
 
 const getBillSummary = async () => {
-    const currentBills = db.getCurrentBills();
+    const currentBills = await db.getCurrentBills();
     let totalAmount = 0;
     const unpaidBills = [];
 
@@ -118,10 +118,11 @@ const getBillSummary = async () => {
     });
 
     // Get latest errors
-    const errors = db.getRecentErrors().filter(log => log.success === 0);
+    const recentErrors = await db.getRecentErrors();
+    const errors = recentErrors.filter(log => log.success === 0);
 
     // Get history (last 20 bills)
-    const history = db.getBills({ limit: 20 });
+    const history = await db.getBills({ limit: 20 });
 
     return {
         bills: billsByType,
@@ -133,16 +134,17 @@ const getBillSummary = async () => {
 };
 
 const markPaid = async (billId) => {
-    db.markBillPaid(billId);
+    await db.markBillPaid(billId);
     return { success: true, id: billId };
 };
 
 const getHistory = async (limit = 50) => {
-    return db.getBills({ limit });
+    return await db.getBills({ limit });
 };
 
 const resolveCmiLink = async (providerName, onLog = console.log) => {
-    const phoneNumber = db.getSetting('inwiPhone') || process.env.INWI_PHONE_NUMBER;
+    const settingPhone = await db.getSetting('inwiPhone');
+    const phoneNumber = settingPhone || process.env.INWI_PHONE_NUMBER;
     
     if (providerName.toLowerCase().includes('inwi')) {
         if (phoneNumber) {
