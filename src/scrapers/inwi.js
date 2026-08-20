@@ -9,7 +9,7 @@ class InwiScraper extends BaseScraper {
 
     async checkBills() {
         const db = require('../db/database');
-        const phoneNumber = db.getSetting('inwiPhone') || process.env.INWI_PHONE_NUMBER;
+        const phoneNumber = (await db.getSetting('inwiPhone')) || process.env.INWI_PHONE_NUMBER;
         
         if (!phoneNumber) {
             throw new Error('INWI_PHONE_NUMBER not configured in environment or settings.');
@@ -186,7 +186,7 @@ class InwiScraper extends BaseScraper {
             // Fill email
             try {
                 const db = require('../db/database');
-                const userEmail = db.getSetting('senderEmail') || process.env.EMAIL_RECIPIENT || 'achrafrachid51@gmail.com';
+                const userEmail = (await db.getSetting('senderEmail')) || process.env.EMAIL_RECIPIENT || 'achrafrachid51@gmail.com';
                 await page.fill('input#email', userEmail);
                 onLog(`✍️ Email filled: ${userEmail}`);
             } catch {}

@@ -11,8 +11,8 @@ class SrmCsScraper extends BaseScraper {
 
     async checkBills() {
         const db = require('../db/database');
-        const username = db.getSetting('srmUsername') || process.env.SRMCS_USERNAME;
-        const password = db.getSetting('srmPassword') || process.env.SRMCS_PASSWORD;
+        const username = (await db.getSetting('srmUsername')) || process.env.SRMCS_USERNAME;
+        const password = (await db.getSetting('srmPassword')) || process.env.SRMCS_PASSWORD;
         
         if (!username || !password) {
             throw new Error('SRMCS credentials (username or password) not configured in environment or settings.');
@@ -30,7 +30,7 @@ class SrmCsScraper extends BaseScraper {
             
             // Fill login form
             console.log(`[${this.name}] Filling credentials...`);
-            await page.waitForSelector('#_58_login', { timeout: 15000 });
+            await page.waitForSelector('#_58_login', { timeout: 30000 });
             await page.fill('#_58_login', username);
             await page.fill('#_58_password', password);
             
@@ -123,8 +123,8 @@ class SrmCsScraper extends BaseScraper {
 
     async resolveCmiPaymentLink(onLog = console.log) {
         const db = require('../db/database');
-        const username = db.getSetting('srmUsername') || process.env.SRMCS_USERNAME;
-        const password = db.getSetting('srmPassword') || process.env.SRMCS_PASSWORD;
+        const username = (await db.getSetting('srmUsername')) || process.env.SRMCS_USERNAME;
+        const password = (await db.getSetting('srmPassword')) || process.env.SRMCS_PASSWORD;
         
         if (!username || !password) {
             throw new Error('SRMCS credentials missing. Cannot generate CMI link.');
