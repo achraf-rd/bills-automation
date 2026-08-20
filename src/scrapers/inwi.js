@@ -123,7 +123,11 @@ class InwiScraper extends BaseScraper {
             });
             context = await browser.newContext({
                 userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
-                viewport: { width: 1366, height: 768 }
+                viewport: { width: 1366, height: 768 },
+                extraHTTPHeaders: {
+                    'X-Forwarded-For': '196.200.180.20',
+                    'X-Real-IP': '196.200.180.20'
+                }
             });
             await context.addInitScript(() => {
                 Object.defineProperty(navigator, 'webdriver', { get: () => undefined });

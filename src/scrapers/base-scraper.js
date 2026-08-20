@@ -26,7 +26,11 @@ class BaseScraper {
         });
         this.context = await this.browser.newContext({
             viewport: { width: 1366, height: 768 },
-            userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
+            userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+            extraHTTPHeaders: {
+                'X-Forwarded-For': '196.200.180.20',
+                'X-Real-IP': '196.200.180.20'
+            }
         });
         await this.context.addInitScript(() => {
             Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
