@@ -110,8 +110,10 @@ class InwiScraper extends BaseScraper {
         let browser, context, page;
         try {
             onLog(`🚀 Initializing background Playwright browser (Stealth Mode)...`);
-            const playwright = require('playwright');
-            browser = await playwright.chromium.launch({
+            const { chromium } = require('playwright-extra');
+            const stealth = require('puppeteer-extra-plugin-stealth')();
+            chromium.use(stealth);
+            browser = await chromium.launch({
                 headless: true,
                 args: [
                     '--disable-blink-features=AutomationControlled',

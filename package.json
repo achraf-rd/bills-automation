@@ -28,6 +28,8 @@
     "mongoose": "^9.9.3",
     "node-cron": "^3.0.3",
     "nodemailer": "^6.10.1",
-    "playwright": "^1.62.1"
+    "playwright": "^1.62.1",
+    "playwright-extra": "^4.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
   }
 }
